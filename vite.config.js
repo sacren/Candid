@@ -10,4 +10,11 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+
+    server: {
+        cors: true,
+        hmr: {
+            host: 'laravel.local',
+        },
+    },
 });
