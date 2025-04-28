@@ -5,9 +5,7 @@
 </head>
 <body>
     <h1>Transaction Details</h1>
-    @php
-        var_dump($transaction);
-        var_dump($transaction->amount);
-    @endphp
+    <p><strong>Amount:</strong> {{ $transaction->amount }}</p>
+    <p><strong>Description:</strong> {{ $transaction->description }}</p>
 </body>
 </html>

@@ -13,8 +13,9 @@ class Transaction
     /**
      * Create a new class instance.
      */
-    public function __construct()
+    public function __construct(float $amount, string $description)
     {
-        //
+        $this->amount = $amount;
+        $this->description = $description;
     }
 }
