@@ -7,8 +7,8 @@ class Transaction
     /**
      * Public properties for amount and description.
      */
-    public $amount;
-    public $description;
+    public float $amount;
+    public string $description;
 
     /**
      * Create a new class instance.
