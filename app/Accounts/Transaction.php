@@ -7,8 +7,8 @@ class Transaction
     /**
      * Public properties for amount and description.
      */
-    public float $amount;
-    public string $description;
+    private float $amount;
+    private string $description;
 
     /**
      * Create a new class instance.
@@ -43,5 +43,25 @@ class Transaction
         $this->amount -= $this->amount * $rate / 100;
 
         return $this;
+    }
+
+    /**
+     * Get the transaction amount.
+     *
+     * @return float
+     */
+    public function getAmount(): float
+    {
+        return $this->amount;
+    }
+
+    /**
+     * Get the transaction description.
+     *
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
     }
 }
