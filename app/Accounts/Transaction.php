@@ -18,4 +18,30 @@ class Transaction
         $this->amount = $amount;
         $this->description = $description;
     }
+
+    /**
+     * Add tax to the transaction.
+     *
+     * @param  float  $rate
+     * @return $this
+     */
+    public function addTax(float $rate): self
+    {
+        $this->amount += $this->amount * $rate / 100;
+
+        return $this;
+    }
+
+    /**
+     * Apply discount to the transaction.
+     *
+     * @param  float  $rate
+     * @return $this
+     */
+    public function applyDiscount(float $rate): self
+    {
+        $this->amount -= $this->amount * $rate / 100;
+
+        return $this;
+    }
 }

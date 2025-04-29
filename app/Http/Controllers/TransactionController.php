@@ -13,6 +13,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transaction = new Transaction(100, 'Cash Transaction');
+        $transaction->addTax(8)->applyDiscount(10);
 
         return view('transaction.index', compact('transaction'));
     }
