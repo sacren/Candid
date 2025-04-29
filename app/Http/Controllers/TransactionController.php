@@ -14,8 +14,10 @@ class TransactionController extends Controller
     {
         $transaction = new Transaction(100, 'Cash Transaction');
         $transaction->addTax(8)->applyDiscount(10);
+        $amount = number_format($transaction->getAmount(), 2);
+        $description = $transaction->getDescription();
 
-        return view('transaction.index', compact('transaction'));
+        return view('transaction.index', compact('amount', 'description'));
     }
 
     /**
