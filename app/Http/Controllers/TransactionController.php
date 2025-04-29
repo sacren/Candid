@@ -12,12 +12,25 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transaction = new Transaction(100, 'Cash Transaction');
-        $transaction->addTax(8)->applyDiscount(10);
-        $amount = number_format($transaction->getAmount(), 2);
-        $description = $transaction->getDescription();
+        // Create and process transactions
+        $transactions = [];
+        $transactions[] = (new Transaction(100, 'Cash Transaction'))
+            ->addTax(8)
+            ->applyDiscount(10);
+        $transactions[] = (new Transaction(200, 'Bank Transaction'))
+            ->addTax(8)
+            ->applyDiscount(15);
 
-        return view('transaction.index', compact('amount', 'description'));
+        // Prepare data for the view
+        $data = [];
+        foreach ($transactions as $transaction) {
+            $data[] = [
+                'amount' => number_format($transaction->getAmount(), 2),
+                'description' => $transaction->getDescription(),
+            ];
+        }
+
+        return view('transaction.index', compact('data'));
     }
 
     /**
