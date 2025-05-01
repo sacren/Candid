@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Accounts\ProcessTransaction;
 use App\Accounts\Transaction;
 use Illuminate\Http\Request;
 
@@ -24,10 +25,10 @@ class TransactionController extends Controller
         // Prepare data for the view
         $data = [];
         foreach ($transactions as $transaction) {
-            $data[] = [
-                'amount' => number_format($transaction->getAmount(), 2),
-                'description' => $transaction->getDescription(),
-            ];
+            $data[] = new ProcessTransaction(
+                $transaction->getAmount(),
+                $transaction->getDescription()
+            );
         }
 
         return view('transaction.index', compact('data'));
