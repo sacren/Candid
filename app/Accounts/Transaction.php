@@ -5,18 +5,12 @@ namespace App\Accounts;
 class Transaction
 {
     /**
-     * Public properties for amount and description.
-     */
-    private float $amount;
-    private string $description;
-
-    /**
      * Create a new class instance.
      */
-    public function __construct(float $amount, string $description)
-    {
-        $this->amount = $amount;
-        $this->description = $description;
+    public function __construct(
+        private float $amount,
+        private string $description
+    ) {
     }
 
     /**
