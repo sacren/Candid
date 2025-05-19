@@ -58,4 +58,21 @@ class Transaction
     {
         return $this->description;
     }
+
+    /**
+     * Demo only.
+     *
+     * We cannot reliably control exactly when __destruct() is called — only
+     * that it will happen before the script ends or when the object is no
+     * longer referenced.
+     *
+     * In web applications, all objects are destroyed at the end of the request
+     * anyway, so destructors are rarely crucial unless dealing with
+     * long-running CLI scripts or resource-heavy operations.
+     */
+    public function __destruct()
+    {
+        // Demo-only: No-op destructor
+        // In real applications, use destructors only for resource cleanup
+    }
 }
