@@ -14,7 +14,7 @@ class ProcessTransaction
      */
     public function __construct(public float $amount, public string $description)
     {
-        $this->customer = null;
+        $this->customer = new Customer();
     }
 
     /**
