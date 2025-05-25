@@ -2,10 +2,12 @@
     <h1>Transaction Details</h1>
 
     @foreach ($data as $item)
-        <p><strong>Scope:</strong> {{ \App\Accounts\Transaction::class }}</p>
-        <p><strong>ID:</strong> {{ $item->getCustomer()?->getPaymentProfile()?->id ?? 'N/A' }}</p>
-        <p><strong>Description:</strong> {{ $item->description }}</p>
-        <p><strong>Final Amount:</strong> {{ number_format($item->amount, 2) }}</p>
-        <p><strong>Status:</strong> {{ \App\Enums\Status::PAID->value }}</p>
+        <ul>
+            <li><strong>Scope:</strong> {{ \App\Accounts\Transaction::class }}</li>
+            <li><strong>ID:</strong> {{ $item->getCustomer()?->getPaymentProfile()?->id ?? 'N/A' }}</li>
+            <li><strong>Description:</strong> {{ $item->description }}</li>
+            <li><strong>Final Amount:</strong> {{ number_format($item->amount, 2) }}</li>
+            <li><strong>Status:</strong> {{ \App\Enums\Status::PAID->value }}</li>
+        </ul>
     @endforeach
 </x-layouts.app>
