@@ -5,13 +5,6 @@ namespace App\Accounts;
 class Transaction
 {
     /**
-     * Transaction status constants.
-     */
-    public const STATUS_PAID = 'paid';
-    public const STATUS_PENDING = 'pending';
-    public const STATUS_DECLINED = 'declined';
-
-    /**
      * Create a new class instance.
      */
     public function __construct(
