@@ -4,7 +4,7 @@
         Transaction Details
     </h1>
 
-    @foreach ($data as $item)
+    @foreach ($transactions as $transaction)
         <div class="bg-white shadow-md rounded-lg p-6 mb-6 space-y-4 transition duration-200 hover:shadow-lg">
             <h2 class="text-xl font-semibold border-b border-gray-200 pb-2 text-gray-800">
                 Transaction Summary
@@ -19,17 +19,17 @@
                 <div class="flex items-center">
                     <strong class="text-gray-700 w-28">ID:</strong>
                     <span
-                        class="ml-2 text-gray-900">{{ $item->getCustomer()?->getPaymentProfile()?->id ?? 'N/A' }}</span>
+                        class="ml-2 text-gray-900">{{ $transaction->getCustomer()?->getPaymentProfile()?->id ?? 'N/A' }}</span>
                 </div>
 
                 <div class="flex items-center">
                     <strong class="text-gray-700 w-28">Description:</strong>
-                    <span class="ml-2 text-gray-900">{{ $item->description }}</span>
+                    <span class="ml-2 text-gray-900">{{ $transaction->getDescription() }}</span>
                 </div>
 
                 <div class="flex items-center">
                     <strong class="text-gray-700 w-28">Final Amount:</strong>
-                    <span class="ml-2 text-gray-900">{{ number_format($item->amount, 2) }}</span>
+                    <span class="ml-2 text-gray-900">{{ number_format($transaction->getAmount(), 2) }}</span>
                 </div>
 
                 <div class="flex items-center">
