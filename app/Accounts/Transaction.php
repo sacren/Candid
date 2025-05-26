@@ -5,12 +5,18 @@ namespace App\Accounts;
 class Transaction
 {
     /**
+     * The customer associated with the transaction.
+     */
+    private ?Customer $customer;
+
+    /**
      * Create a new class instance.
      */
     public function __construct(
         private float $amount,
         private string $description
     ) {
+        $this->customer = new Customer();
     }
 
     /**
@@ -57,6 +63,16 @@ class Transaction
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * Get the customer associated with the transaction.
+     *
+     * @return ?Customer
+     */
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
     }
 
     /**
