@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Accounts\ProcessTransaction;
 use App\Accounts\Transaction;
 use Illuminate\Http\Request;
 
@@ -21,15 +20,6 @@ class TransactionController extends Controller
         $transactions[] = (new Transaction(200, 'Bank Transaction'))
             ->addTax(8)
             ->applyDiscount(15);
-
-        // Prepare data for the view
-        $data = [];
-        foreach ($transactions as $transaction) {
-            $data[] = new ProcessTransaction(
-                $transaction->getAmount(),
-                $transaction->getDescription()
-            );
-        }
 
         return view('transactions.index', compact('transactions'));
     }
