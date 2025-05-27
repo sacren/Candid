@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Accounts\Transaction;
+use App\Enums\Status;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -15,9 +16,11 @@ class TransactionController extends Controller
         // Create and process transactions
         $transactions = [];
         $transactions[] = (new Transaction(100, 'Cash Transaction'))
+            ->setStatus(Status::PENDING->value)
             ->addTax(8)
             ->applyDiscount(10);
         $transactions[] = (new Transaction(200, 'Bank Transaction'))
+            ->setStatus(Status::DECLINED->value)
             ->addTax(8)
             ->applyDiscount(15);
 
