@@ -7,6 +7,11 @@ use App\Enums\Status;
 class Transaction
 {
     /**
+     * The transaction ID.
+     */
+    private static int $id = 0;
+
+    /**
      * The transaction status.
      */
     private Status $status;
@@ -104,6 +109,16 @@ class Transaction
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+     * Static getter for the transaction ID.
+     *
+     * @return int
+     */
+    public static function getTransactionId(): int
+    {
+        return ++self::$id;
     }
 
     /**

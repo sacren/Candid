@@ -19,7 +19,7 @@
                 <div class="flex items-center">
                     <strong class="text-gray-700 w-28">ID:</strong>
                     <span
-                        class="ml-2 text-gray-900">{{ $transaction->getCustomer()?->getPaymentProfile()?->id ?? 'N/A' }}</span>
+                        class="ml-2 text-gray-900">{{ $transaction->getCustomer()?->getPaymentProfile()?->id ?? \App\Accounts\Transaction::getTransactionId() }}</span>
                 </div>
 
                 <div class="flex items-center">
