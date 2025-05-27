@@ -16,11 +16,11 @@ class TransactionController extends Controller
         // Create and process transactions
         $transactions = [];
         $transactions[] = (new Transaction(100, 'Cash Transaction'))
-            ->setStatus(Status::PENDING->value)
+            ->setStatus(Status::PENDING)
             ->addTax(8)
             ->applyDiscount(10);
         $transactions[] = (new Transaction(200, 'Bank Transaction'))
-            ->setStatus(Status::DECLINED->value)
+            ->setStatus(Status::DECLINED)
             ->addTax(8)
             ->applyDiscount(15);
 

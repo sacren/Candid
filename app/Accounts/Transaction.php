@@ -9,7 +9,7 @@ class Transaction
     /**
      * The transaction status.
      */
-    private string $status;
+    private Status $status;
 
     /**
      * The customer associated with the transaction.
@@ -24,7 +24,7 @@ class Transaction
         private string $description
     ) {
         $this->customer = new Customer();
-        $this->status = Status::PENDING->value;
+        $this->status = Status::PENDING;
     }
 
     /**
@@ -86,9 +86,9 @@ class Transaction
     /**
      * Get the transaction status.
      *
-     * @return string
+     * @return Status
      */
-    public function getStatus(): string
+    public function getStatus(): Status
     {
         return $this->status;
     }
@@ -96,10 +96,10 @@ class Transaction
     /**
      * Set the transaction status.
      *
-     * @param  string  $status
+     * @param  Status  $status
      * @return $this
      */
-    public function setStatus(string $status): self
+    public function setStatus(Status $status): self
     {
         $this->status = $status;
 

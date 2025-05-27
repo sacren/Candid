@@ -44,7 +44,7 @@
                     <strong class="text-gray-700 w-28">New Status:</strong>
                     <span
                         class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                        {{ $transaction->getStatus() }}
+                        {{ $transaction->getStatus()->value }}
                     </span>
                 </div>
             </div>
