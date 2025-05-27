@@ -2,8 +2,15 @@
 
 namespace App\Accounts;
 
+use App\Enums\Status;
+
 class Transaction
 {
+    /**
+     * The transaction status.
+     */
+    private string $status;
+
     /**
      * The customer associated with the transaction.
      */
@@ -17,6 +24,7 @@ class Transaction
         private string $description
     ) {
         $this->customer = new Customer();
+        $this->status = Status::PENDING->value;
     }
 
     /**
@@ -73,6 +81,29 @@ class Transaction
     public function getCustomer(): ?Customer
     {
         return $this->customer;
+    }
+
+    /**
+     * Get the transaction status.
+     *
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the transaction status.
+     *
+     * @param  string  $status
+     * @return $this
+     */
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
     }
 
     /**
