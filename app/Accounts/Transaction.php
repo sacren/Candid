@@ -101,7 +101,7 @@ class Transaction
     /**
      * Set the transaction status.
      *
-     * @param  Status  $status
+     * @param  Status::PAID|Status::PENDING|Status::DECLINED $status
      * @return $this
      */
     public function setStatus(Status $status): self
