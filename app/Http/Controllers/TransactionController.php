@@ -23,6 +23,10 @@ class TransactionController extends Controller
             ->setStatus(Status::DECLINED)
             ->addTax(8)
             ->applyDiscount(15);
+        $transactions[] = (new Transaction(300, 'Credit Transaction'))
+            ->setStatus(Status::PAID)
+            ->addTax(16)
+            ->applyDiscount(20);
 
         return view('transactions.index', compact('transactions'));
     }
