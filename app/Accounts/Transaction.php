@@ -7,6 +7,11 @@ use App\Enums\Status;
 class Transaction
 {
     /**
+     * The transaction count.
+     */
+    private static int $count = 0;
+
+    /**
      * The transaction ID.
      */
     private static int $id = 0;
@@ -30,6 +35,7 @@ class Transaction
     ) {
         $this->customer = new Customer();
         $this->status = Status::PENDING;
+        self::$count++;
     }
 
     /**
@@ -119,6 +125,16 @@ class Transaction
     public static function getTransactionId(): int
     {
         return ++self::$id;
+    }
+
+    /**
+     * Static getter for the transaction count.
+     *
+     * @return int
+     */
+    public static function getCount(): int
+    {
+        return self::$count;
     }
 
     /**

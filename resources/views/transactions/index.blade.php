@@ -1,8 +1,13 @@
 <x-layouts.app title="Transaction Home">
     <h1
-        class="text-2xl font-bold p-6 mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 text-indigo-800 rounded-lg shadow-sm">
+        class="text-2xl font-bold p-6 bg-gradient-to-r from-blue-50 to-indigo-50 text-indigo-800 rounded-lg shadow-sm">
         Transaction Details
     </h1>
+
+    <!-- Transaction Count -->
+    <div class="mb-6 px-6 py-3 bg-indigo-100 text-indigo-800 rounded-md shadow-sm">
+        <strong>Transaction Count:</strong> {{ \App\Accounts\Transaction::getCount() }}
+    </div>
 
     @foreach ($transactions as $transaction)
         <div class="bg-white shadow-md rounded-lg p-6 mb-6 space-y-4 transition duration-200 hover:shadow-lg">
