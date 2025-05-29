@@ -17,6 +17,11 @@ class Transaction
     private static int $id = 0;
 
     /**
+     * The transaction object ID.
+     */
+    private int $transactionId;
+
+    /**
      * The transaction status.
      */
     private Status $status;
@@ -36,6 +41,8 @@ class Transaction
         $this->customer = new Customer();
         $this->status = Status::PENDING;
         self::$count++;
+        self::$id++;
+        $this->transactionId = self::$id;
     }
 
     /**
@@ -118,13 +125,13 @@ class Transaction
     }
 
     /**
-     * Static getter for the transaction ID.
+     * Getter for the transaction object ID.
      *
      * @return int
      */
-    public static function getTransactionId(): int
+    public function getTransactionId(): int
     {
-        return ++self::$id;
+        return $this->transactionId;
     }
 
     /**
