@@ -10,14 +10,9 @@ class Toaster
     private array $slices = [];
 
     /**
-     * The maximum number of slices to prepare.
-     */
-    private int $max = 2;
-
-    /**
      * Create a new class instance.
      */
-    public function __construct()
+    public function __construct(private int $max = 2)
     {
         //
     }
