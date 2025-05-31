@@ -38,4 +38,14 @@ class Toaster
     {
         return $this->slices;
     }
+
+    /**
+     * Toast the slices to a new array.
+     *
+     * @return array
+     */
+    public function toast(): array
+    {
+        return array_map(fn ($slice) => "Toasting $slice", $this->slices);
+    }
 }
