@@ -17,7 +17,7 @@ class ToasterController extends Controller
         $toaster->addSlice('Blueberry');
         $toaster->addSlice('Plain');
 
-        $slices = $toaster->getSlices();
+        $slices = $toaster->toast();
 
         return view('toasters.index', compact('slices'));
     }
