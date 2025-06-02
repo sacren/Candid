@@ -18,8 +18,12 @@ class ToasterController extends Controller
         $toaster->addSlice('Plain');
 
         $slices = $toaster->toast();
+        $butterSlices = $toaster->toastWithButter();
 
-        return view('toasters.index', compact('slices'));
+        return view('toasters.index', [
+            'slices' => $slices,
+            'butter_slices' => $butterSlices,
+        ]);
     }
 
     /**
