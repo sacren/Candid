@@ -2,48 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Appliances\Toaster;
-use App\Appliances\ToasterDeluxe;
+use Database\Factories\ToasterFactory;
 use Illuminate\Http\Request;
 
 class ToasterController extends Controller
 {
     /**
-     * Get the deluxe toaster with butter.
-     *
-     * @return ToasterDeluxe
-     */
-    private function getDeluxeToaster(): ToasterDeluxe
-    {
-        $toaster = new ToasterDeluxe();
-        $toaster->addSlice('Cinnamon');
-        $toaster->addSlice('Blueberry');
-        $toaster->addSlice('Plain');
-        return $toaster;
-    }
-
-    /**
-     * Get the basic toaster.
-     *
-     * @return Toaster
-     */
-    private function getBasicToaster(): Toaster
-    {
-        $toaster = new Toaster();
-        $toaster->addSlice('Single');
-        $toaster->addSlice('Double');
-        $toaster->addSlice('Triple');
-        return $toaster;
-    }
-
-    /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(ToasterFactory $factory)
     {
         return view('toasters.index', [
-            'slices' => $this->getBasicToaster()->toast(),
-            'butter_slices' => $this->getDeluxeToaster()->toastWithButter(),
+            'slices' => $factory->makeToast()->toast(),
+            'butter_slices' => $factory->makeDeluxe()->toastWithButter(),
         ]);
     }
 
