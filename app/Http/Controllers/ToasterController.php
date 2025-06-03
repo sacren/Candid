@@ -9,25 +9,41 @@ use Illuminate\Http\Request;
 class ToasterController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get the deluxe toaster with butter.
+     *
+     * @return ToasterDeluxe
      */
-    public function index()
+    private function getDeluxeToaster(): ToasterDeluxe
     {
-        $deluxe = new ToasterDeluxe();
-        $deluxe->addSlice('Cinnamon');
-        $deluxe->addSlice('Blueberry');
-        $deluxe->addSlice('Plain');
-        $butterSlices = $deluxe->toastWithButter();
+        $toaster = new ToasterDeluxe();
+        $toaster->addSlice('Cinnamon');
+        $toaster->addSlice('Blueberry');
+        $toaster->addSlice('Plain');
+        return $toaster;
+    }
 
+    /**
+     * Get the basic toaster.
+     *
+     * @return Toaster
+     */
+    private function getBasicToaster(): Toaster
+    {
         $toaster = new Toaster();
         $toaster->addSlice('Single');
         $toaster->addSlice('Double');
         $toaster->addSlice('Triple');
-        $slices = $toaster->toast();
+        return $toaster;
+    }
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
         return view('toasters.index', [
-            'slices' => $slices,
-            'butter_slices' => $butterSlices,
+            'slices' => $this->getBasicToaster()->toast(),
+            'butter_slices' => $this->getDeluxeToaster()->toastWithButter(),
         ]);
     }
 
