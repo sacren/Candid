@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Appliances\Toaster;
 use App\Appliances\ToasterDeluxe;
 use Illuminate\Http\Request;
 
@@ -12,13 +13,17 @@ class ToasterController extends Controller
      */
     public function index()
     {
-        $toaster = new ToasterDeluxe();
-        $toaster->addSlice('Cinnamon');
-        $toaster->addSlice('Blueberry');
-        $toaster->addSlice('Plain');
+        $deluxe = new ToasterDeluxe();
+        $deluxe->addSlice('Cinnamon');
+        $deluxe->addSlice('Blueberry');
+        $deluxe->addSlice('Plain');
+        $butterSlices = $deluxe->toastWithButter();
 
+        $toaster = new Toaster();
+        $toaster->addSlice('Single');
+        $toaster->addSlice('Double');
+        $toaster->addSlice('Triple');
         $slices = $toaster->toast();
-        $butterSlices = $toaster->toastWithButter();
 
         return view('toasters.index', [
             'slices' => $slices,
