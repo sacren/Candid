@@ -1,15 +1,16 @@
 <?php
 
-namespace Database\Factories;
+namespace App\Services;
 
 use App\Appliances\Toaster;
 use App\Appliances\ToasterDeluxe;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * Class ToasterFactory.
+ *
+ * @package App\Services
  */
-class ToasterFactory extends Factory
+class ToasterFactory
 {
     /**
      * Define Toaster's default state.
@@ -37,17 +38,5 @@ class ToasterFactory extends Factory
         $toaster->addSlice('Blueberry');
         $toaster->addSlice('Plain');
         return $toaster;
-    }
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
-    {
-        return [
-            //
-        ];
     }
 }

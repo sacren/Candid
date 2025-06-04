@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Database\Factories\ToasterFactory;
+use App\Services\ToasterFactory;
 use Illuminate\Http\Request;
 
 class ToasterController extends Controller
