@@ -13,13 +13,24 @@ use App\Appliances\ToasterDeluxe;
 class ToasterFactory
 {
     /**
+     * ToasterFactory constructor.
+     *
+     * @param Toaster $toaster
+     * @param ToasterDeluxe $toasterDeluxe
+     */
+    public function __construct(
+        private Toaster $toaster,
+        private ToasterDeluxe $toasterDeluxe
+    ) { }
+
+    /**
      * Define Toaster's default state.
      *
      * @return Toaster
      */
     public function makeToast(): Toaster
     {
-        $toaster = new Toaster();
+        $toaster = $this->toaster;
         $toaster->addSlice('Single');
         $toaster->addSlice('Double');
         $toaster->addSlice('Triple');
@@ -33,7 +44,7 @@ class ToasterFactory
      */
     public function makeDeluxe(): ToasterDeluxe
     {
-        $toaster = new ToasterDeluxe();
+        $toaster = $this->toasterDeluxe;
         $toaster->addSlice('Cinnamon');
         $toaster->addSlice('Blueberry');
         $toaster->addSlice('Plain');
