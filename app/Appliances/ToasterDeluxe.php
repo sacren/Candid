@@ -7,7 +7,7 @@ class ToasterDeluxe extends Toaster
     /**
      * Create a new class instance.
      */
-    public function __construct()
+    public function __construct(private string $deluxe = 'Deluxe: Toasting ')
     {
         parent::__construct(4); // Deluxe can handle 4 slices
     }
@@ -19,7 +19,7 @@ class ToasterDeluxe extends Toaster
      */
     public function addSlice(string $slice): void
     {
-        parent::addSlice('Deluxe: Toasting ' . $slice);
+        parent::addSlice($this->deluxe . $slice);
     }
 
     /**
