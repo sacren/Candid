@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Fields\Boolean;
+use App\Fields\Checkbox;
+use App\Fields\Field;
+use App\Fields\Radio;
+use App\Fields\Text;
 use Illuminate\Http\Request;
 
 class FieldController extends Controller
@@ -11,7 +16,20 @@ class FieldController extends Controller
      */
     public function index()
     {
-        return view('fields.index');
+        $list = [
+            'field' => new Field('Field'),
+            'text' => new Text('Text'),
+            'boolean' => new Boolean('Boolean'),
+            'checkbox' => new Checkbox('Checkbox'),
+            'radio' => new Radio('Radio'),
+        ];
+
+        $fields = [];
+        foreach ($list as $key => $field) {
+            $fields[$key] = $field->render();
+        }
+
+        return view('fields.index', compact('fields'));
     }
 
     /**
