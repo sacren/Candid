@@ -2,7 +2,7 @@
 
 namespace App\Fields;
 
-class Field
+abstract class Field
 {
     /**
      * Create a new class instance.
@@ -13,10 +13,7 @@ class Field
     }
 
     /**
-     * Render the field.
+     * Enforce a render method in the child class.
      */
-    public function render(): string
-    {
-        return '';
-    }
+    abstract public function render(): string;
 }
