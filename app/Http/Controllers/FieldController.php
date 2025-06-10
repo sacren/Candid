@@ -20,10 +20,9 @@ class FieldController extends Controller
             'radio' => new Radio('Radio'),
         ];
 
-        $fields = [];
-        foreach ($list as $key => $field) {
-            $fields[$key] = $field->render();
-        }
+        $fields = collect($list)->mapWithKeys(function ($field, $key) {
+            return [$key => $field->render()];
+        })->all();
 
         return view('fields.index', compact('fields'));
     }
