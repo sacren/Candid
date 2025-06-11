@@ -13,6 +13,5 @@ Route::get('/transactions', [TransactionController::class, 'index']);
 
 Route::get('/toasters', [ToasterController::class, 'index']);
 
-Route::get('fields', [
-    FieldController::class, 'index'
-])->name('fields.index');
+Route::resource('fields', FieldController::class)
+    ->only(['index', 'show']);
