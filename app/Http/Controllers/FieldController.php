@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fields\Checkbox;
+use App\Fields\Field;
 use App\Fields\Radio;
 use App\Fields\Text;
 use Illuminate\Http\Request;
@@ -46,9 +47,9 @@ class FieldController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Field $field)
     {
-        //
+        return view("fields.{$field->name}", compact('field'));
     }
 
     /**
