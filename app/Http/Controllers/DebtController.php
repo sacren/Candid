@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Debts\CollectionAgency;
+use App\Debts\DebtCollectionService;
 use Illuminate\Http\Request;
 
 class DebtController extends Controller
@@ -12,9 +13,9 @@ class DebtController extends Controller
      */
     public function index()
     {
-        $collector = new CollectionAgency();
+        $collector = new DebtCollectionService();
         $owedAmount = 500.0;
-        $collectedAmount = $collector->collect($owedAmount);
+        $collectedAmount = $collector->collectDebt(new CollectionAgency());
 
         return view('debts.index', [
             'owed' => $owedAmount,
