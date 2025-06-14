@@ -17,7 +17,7 @@ class DebtCollectionService
      *
      * @return float
      */
-    public function collectDebt(CollectionAgency $collector): float
+    public function collectDebt(DebtCollector $collector): float
     {
         $owedAmount = 500.0;
         $collectedAmount = $collector->collect($owedAmount);
