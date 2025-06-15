@@ -14,7 +14,7 @@ class DebtController extends Controller
     public function index()
     {
         $collector = new DebtCollectionService();
-        $owedAmount = 500.0;
+        $owedAmount = $collector->getOwedAmount();
         $collectedAmount = $collector->collectDebt(new CollectionAgency());
 
         return view('debts.index', [

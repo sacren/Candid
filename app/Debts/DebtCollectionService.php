@@ -7,10 +7,9 @@ class DebtCollectionService
     /**
      * Create a new class instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        private float $owedAmount = 500.0
+    ) { }
 
     /**
      * Collect the owed amount.
@@ -19,9 +18,18 @@ class DebtCollectionService
      */
     public function collectDebt(DebtCollector $collector): float
     {
-        $owedAmount = 500.0;
-        $collectedAmount = $collector->collect($owedAmount);
+        $collectedAmount = $collector->collect($this->owedAmount);
 
         return $collectedAmount;
+    }
+
+    /**
+     * Get the owed amount.
+     *
+     * @return float
+     */
+    public function getOwedAmount(): float
+    {
+        return $this->owedAmount;
     }
 }
