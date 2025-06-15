@@ -13,14 +13,11 @@ class DebtController extends Controller
      */
     public function index(DebtCollectionService $collector, CollectionAgency $agency)
     {
-        $owedAmount = $collector->getOwedAmount();
-        $collectedAmount = $collector->collectDebt($agency);
+        $owed = $collector->getOwedAmount();
+        $collected = $collector->collectDebt($agency);
+        $fee = CollectionAgency::FEE;
 
-        return view('debts.index', [
-            'owed' => $owedAmount,
-            'collected' => $collectedAmount,
-            'fee' => CollectionAgency::FEE,
-        ]);
+        return view('debts.index', compact('owed', 'collected', 'fee'));
     }
 
     /**
