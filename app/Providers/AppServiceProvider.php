@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use App\Debts\FastAgency;
+use App\Debts\DebtCollector;
 use App\Fields\Checkbox;
 use App\Fields\Field;
 use App\Fields\Radio;
@@ -16,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(DebtCollector::class, FastAgency::class);
     }
 
     /**
