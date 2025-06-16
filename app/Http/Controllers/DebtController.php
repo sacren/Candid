@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Debts\CollectionAgency;
 use App\Debts\DebtCollectionService;
+use App\Debts\FastAgency;
 use Illuminate\Http\Request;
 
 class DebtController extends Controller
@@ -11,11 +11,11 @@ class DebtController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(DebtCollectionService $collector, CollectionAgency $agency)
+    public function index(DebtCollectionService $collector, FastAgency $agency)
     {
         $owed = $collector->getOwedAmount();
         $collected = $collector->collectDebt($agency);
-        $fee = CollectionAgency::FEE;
+        $fee = FastAgency::FEE;
 
         return view('debts.index', compact('owed', 'collected', 'fee'));
     }
