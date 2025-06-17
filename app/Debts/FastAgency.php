@@ -7,7 +7,7 @@ class FastAgency implements DebtCollector
     /**
      * Expedited fee.
      */
-    public const float FEE = 200.0;
+    public const float EXPEDITED_FEE = 150.0;
 
     /**
      * Create a new class instance.
@@ -24,6 +24,16 @@ class FastAgency implements DebtCollector
      */
     public function collect(float $owedAmount): float
     {
-        return $owedAmount - self::FEE;
+        return $owedAmount - $this->getFee();
+    }
+
+    /**
+     * Get the fee.
+     *
+     * @return float
+     */
+    public function getFee(): float
+    {
+        return self::EXPEDITED_FEE + self::FEE;
     }
 }

@@ -21,4 +21,14 @@ class CollectionAgency implements DebtCollector
     {
         return $owedAmount - self::FEE;
     }
+
+    /**
+     * Get the fee.
+     *
+     * @return float
+     */
+    public function getFee(): float
+    {
+        return self::FEE;
+    }
 }

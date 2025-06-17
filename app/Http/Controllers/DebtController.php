@@ -15,7 +15,7 @@ class DebtController extends Controller
     {
         $owed = $collector->getOwedAmount();
         $collected = $collector->collectDebt($agency);
-        $fee = $agency::FEE;
+        $fee = $agency->getFee();
 
         return view('debts.index', compact('owed', 'collected', 'fee'));
     }
