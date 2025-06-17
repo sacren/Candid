@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DebtController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\ToasterController;
 use App\Http\Controllers\TransactionController;
@@ -15,3 +16,6 @@ Route::get('/toasters', [ToasterController::class, 'index']);
 
 Route::resource('fields', FieldController::class)
     ->only(['index', 'show']);
+
+Route::resource('debts', DebtController::class)
+    ->only('index');
