@@ -11,7 +11,7 @@ class Invoice
      *
      * @var array
      */
-    private $attributes = [];
+    private array $attributes = [];
 
     /**
      * Create a new class instance.
@@ -23,6 +23,8 @@ class Invoice
 
     /**
      * Use __get magic method.
+     *
+     * @param  string  $name
      */
     public function __get($name)
     {
@@ -31,6 +33,8 @@ class Invoice
 
     /**
      * Use __set magic method.
+     *
+     * @param  string  $name
      */
     public function __set($name, $value): void
     {
@@ -38,9 +42,12 @@ class Invoice
     }
 
     /**
-     * Format the currency.
+     * Format the given attribute as currency.
+     *
+     * @param  string  $name
+     * @return string
      */
-    public function formatCurrency(string $name)
+    public function formatCurrency(string $name): string
     {
         $value = $this->getAttribute($name);
         $formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
@@ -50,6 +57,9 @@ class Invoice
 
     /**
      * Get the value of an attribute.
+     *
+     * @param  string  $name
+     * @param  mixed  $default
      */
     public function getAttribute($name, $default = null)
     {
