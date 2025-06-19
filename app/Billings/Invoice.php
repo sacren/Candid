@@ -2,6 +2,8 @@
 
 namespace App\Billings;
 
+use NumberFormatter;
+
 class Invoice
 {
     /**
@@ -33,5 +35,24 @@ class Invoice
     public function __set($name, $value): void
     {
         $this->attributes[$name] = $value;
+    }
+
+    /**
+     * Format the currency.
+     */
+    public function formatCurrency(string $name)
+    {
+        $value = $this->getAttribute($name);
+        $formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
+
+        return $formatter->formatCurrency($value, 'USD');
+    }
+
+    /**
+     * Get the value of an attribute.
+     */
+    public function getAttribute($name, $default = null)
+    {
+        return $this->attributes[$name] ?? $default;
     }
 }
