@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DebtController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\ToasterController;
@@ -18,4 +19,7 @@ Route::resource('fields', FieldController::class)
     ->only(['index', 'show']);
 
 Route::resource('debts', DebtController::class)
+    ->only('index');
+
+Route::resource('billings', BillingController::class)
     ->only('index');
