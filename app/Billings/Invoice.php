@@ -76,4 +76,14 @@ class Invoice
     {
         return isset($this->attributes[$name]);
     }
+
+    /**
+     * Unset the given attribute.
+     *
+     * @param  string  $name
+     */
+    public function __unset($name): void
+    {
+        unset($this->attributes[$name]);
+    }
 }

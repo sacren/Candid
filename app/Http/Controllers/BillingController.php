@@ -14,6 +14,7 @@ class BillingController extends Controller
     {
         $invoice = new Invoice();
         $invoice->amount = 5000;
+        unset($invoice->amount);
 
         return view('billings.index', compact('invoice'));
     }
