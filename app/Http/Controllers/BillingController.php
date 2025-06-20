@@ -13,7 +13,6 @@ class BillingController extends Controller
     public function index()
     {
         $invoice = new Invoice();
-        $invoice->amount;
 
         return view('billings.index', compact('invoice'));
     }

@@ -65,4 +65,15 @@ class Invoice
     {
         return $this->attributes[$name] ?? $default;
     }
+
+    /**
+     * Determine if the given attribute exists.
+     *
+     * @param  string  $name
+     * @return bool
+     */
+    public function __isset($name): bool
+    {
+        return isset($this->attributes[$name]);
+    }
 }
