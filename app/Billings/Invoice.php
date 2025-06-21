@@ -86,4 +86,16 @@ class Invoice
     {
         unset($this->attributes[$name]);
     }
+
+    /**
+     * Dynamically call methods.
+     *
+     * @param  string  $name
+     * @param  array  $arguments
+     * @return array
+     */
+    public function __call(string $name, array $arguments): array
+    {
+        return array_merge([$name], $arguments);
+    }
 }
