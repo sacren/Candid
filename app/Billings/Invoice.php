@@ -88,13 +88,13 @@ class Invoice
     }
 
     /**
-     * Dynamically call methods.
+     * Custom mapping method.
      *
      * @param  string  $name
      * @param  array  $arguments
      * @return array
      */
-    public function __call(string $name, array $arguments): array
+    private function mapCall(string $name, array $arguments): array
     {
         $labels = [
             'process' => 'Process invoice',
@@ -103,5 +103,17 @@ class Invoice
         ];
 
         return array_map(fn ($item) => $labels[$item] ?? $item, [$name, ...$arguments]);
+    }
+
+    /**
+     * Dynamic call method.
+     *
+     * @param  string  $name
+     * @param  array  $arguments
+     * @return array
+     */
+    public function __call(string $name, array $arguments): array
+    {
+        return $this->mapCall($name, $arguments);
     }
 }
