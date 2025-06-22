@@ -96,6 +96,12 @@ class Invoice
      */
     public function __call(string $name, array $arguments): array
     {
-        return array_merge([$name], $arguments);
+        $labels = [
+            'process' => 'Process invoice',
+            'payment' => 'Payment method',
+            'email' => 'Email notification',
+        ];
+
+        return array_map(fn ($item) => $labels[$item] ?? $item, [$name, ...$arguments]);
     }
 }
