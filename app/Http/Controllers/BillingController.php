@@ -15,7 +15,7 @@ class BillingController extends Controller
         $invoice = new Invoice();
         $invoice->amount = 5000;
         unset($invoice->amount);
-        $results = $invoice->process();
+        $results = $invoice->process('payment', 'email');
 
         return view('billings.index', compact('invoice', 'results'));
     }

@@ -20,9 +20,13 @@
 
         <!-- Display process() result -->
         <div class="mt-4 p-3 bg-blue-50 text-blue-800 text-sm rounded-md border border-blue-100">
-            @foreach ($results as $result)
-                <strong>Process Result:</strong> {{ $result }}
-            @endforeach
+            <ul>
+                @foreach ($results as $result)
+                    <li>
+                        <strong>Process Result:</strong> {{ $result }}
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </x-layouts.app>
