@@ -142,6 +142,6 @@ class Invoice
      */
     public static function __callStatic(string $name, array $arguments): array
     {
-        return self::mapStaticCall($name, $arguments);
+        return static::mapStaticCall($name, $arguments);
     }
 }
