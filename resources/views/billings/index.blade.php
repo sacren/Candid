@@ -28,5 +28,16 @@
                 @endforeach
             </ul>
         </div>
+
+        <!-- Display process() static result -->
+        <div class="mt-4 p-3 bg-blue-50 text-blue-800 text-sm rounded-md border border-blue-100">
+            <ul>
+                @foreach ($staticResults as $staticResult)
+                    <li>
+                        <strong>Static Process:</strong> {{ $staticResult }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     </div>
 </x-layouts.app>

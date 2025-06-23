@@ -116,4 +116,32 @@ class Invoice
     {
         return $this->mapCall($name, $arguments);
     }
+
+    /**
+     * Static custom mapping method.
+     *
+     * @param  string  $name
+     * @param  array  $arguments
+     * @return array
+     */
+    private static function mapStaticCall(string $name, array $arguments): array
+    {
+        $labels = [
+            'process' => 'Process invoice',
+        ];
+
+        return array_map(fn ($item) => $labels[$item] ?? $item, [$name, ...$arguments]);
+    }
+
+    /**
+     * Static call method.
+     *
+     * @param  string  $name
+     * @param  array  $arguments
+     * @return array
+     */
+    public static function __callStatic(string $name, array $arguments): array
+    {
+        return self::mapStaticCall($name, $arguments);
+    }
 }

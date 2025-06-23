@@ -16,8 +16,9 @@ class BillingController extends Controller
         $invoice->amount = 5000;
         unset($invoice->amount);
         $results = $invoice->process('payment', 'email');
+        $staticResults = Invoice::process('sms');
 
-        return view('billings.index', compact('invoice', 'results'));
+        return view('billings.index', compact('invoice', 'results', 'staticResults'));
     }
 
     /**
