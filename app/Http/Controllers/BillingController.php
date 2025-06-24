@@ -17,8 +17,16 @@ class BillingController extends Controller
         unset($invoice->amount);
         $results = $invoice->process('payment', 'email');
         $staticResults = Invoice::process('sms');
+        $parentClass = Invoice::getClassBySelf();
+        $childClass = Invoice::getClassByStatic();
 
-        return view('billings.index', compact('invoice', 'results', 'staticResults'));
+        return view('billings.index', compact(
+            'invoice',
+            'results',
+            'staticResults',
+            'parentClass',
+            'childClass'
+        ));
     }
 
     /**
