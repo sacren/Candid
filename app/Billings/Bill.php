@@ -17,7 +17,7 @@ class Bill
      *
      * @return string
      */
-    public static function getClassName(): string
+    private static function getClassName(): string
     {
         return __CLASS__;
     }

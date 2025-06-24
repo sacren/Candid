@@ -150,7 +150,7 @@ class Invoice extends Bill
      *
      * @return string
      */
-    public static function getClassName(): string
+    protected static function getClassName(): string
     {
         return __CLASS__;
     }
