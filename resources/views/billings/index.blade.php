@@ -41,7 +41,7 @@
         </div>
 
         <!-- Display class name -->
-        <div class="mt-4 p-3 bg-blue-50 text-blue-800 text-sm rounded-md border border-blue-100 space-y-2">
+        <div class="mt-4 p-3 bg-blue-50 text-blue-800 text-sm rounded-md border border-blue-100">
             <div class="flex">
                 <span class="font-medium w-24 flex-shrink-0">Parent Class:</span>
                 <span class="break-all">{{ $parentClass }}</span>
