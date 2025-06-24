@@ -4,7 +4,7 @@ namespace App\Billings;
 
 use NumberFormatter;
 
-class Invoice
+class Invoice extends Bill
 {
     /**
      * The attributes are the storage of dynamic properties.
@@ -143,5 +143,15 @@ class Invoice
     public static function __callStatic(string $name, array $arguments): array
     {
         return static::mapStaticCall($name, $arguments);
+    }
+
+    /**
+     * Get the class name.
+     *
+     * @return string
+     */
+    public static function getClassName(): string
+    {
+        return __CLASS__;
     }
 }
