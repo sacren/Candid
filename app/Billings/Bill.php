@@ -2,7 +2,7 @@
 
 namespace App\Billings;
 
-class Bill
+class Bill extends NamedObject
 {
     /**
      * Create a new class instance.
@@ -40,15 +40,5 @@ class Bill
     public static function getClassByStatic(): string
     {
         return static::getClassName();
-    }
-
-    /**
-     * Convert the object to its string representation.
-     *
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return (new \ReflectionClass($this))->getShortName();
     }
 }
