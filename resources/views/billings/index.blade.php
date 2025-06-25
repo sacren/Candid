@@ -50,6 +50,14 @@
                 <span class="font-medium w-24 flex-shrink-0">{{ $invoice }} Class:</span>
                 <span class="break-all">{{ $childClass }}</span>
             </div>
+            <div class="flex">
+                <span class="font-medium w-24 flex-shrink-0">{{ $bill }} Class:</span>
+                <span class="break-all">{{ $classEarly }}</span>
+            </div>
+            <div class="flex">
+                <span class="font-medium w-24 flex-shrink-0">{{ $invoice }} Class:</span>
+                <span class="break-all">{{ $classLate }}</span>
+            </div>
         </div>
     </div>
 </x-layouts.app>

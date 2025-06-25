@@ -41,4 +41,24 @@ class Bill extends NamedObject
     {
         return static::getClassName();
     }
+
+    /**
+     * Get the class name using early binding.
+     *
+     * @return string
+     */
+    public static function getClassEarly(): string
+    {
+        return self::class;
+    }
+
+    /**
+     * Get the class name using late binding.
+     *
+     * @return string
+     */
+    public static function getClassLate(): string
+    {
+        return static::class;
+    }
 }

@@ -16,6 +16,8 @@ class BillingController extends Controller
         $bill = new Bill();
         $invoice = new Invoice();
         $invoice->amount = 5000;
+        $classEarly = Invoice::getClassEarly();
+        $classLate = Invoice::getClassLate();
         unset($invoice->amount);
         $results = $invoice->process('payment', 'email');
         $staticResults = Invoice::process('sms');
@@ -25,6 +27,8 @@ class BillingController extends Controller
         return view('billings.index', compact(
             'bill',
             'invoice',
+            'classEarly',
+            'classLate',
             'results',
             'staticResults',
             'parentClass',
