@@ -162,6 +162,6 @@ class Invoice extends Bill
      */
     public function __toString(): string
     {
-        return 'Invoice';
+        return (new \ReflectionClass($this))->getShortName();
     }
 }

@@ -49,6 +49,6 @@ class Bill
      */
     public function __toString(): string
     {
-        return 'Bill';
+        return (new \ReflectionClass($this))->getShortName();
     }
 }
