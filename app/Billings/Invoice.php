@@ -154,4 +154,14 @@ class Invoice extends Bill
     {
         return __CLASS__;
     }
+
+    /**
+     * Convert the object to its string representation.
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return 'Invoice';
+    }
 }

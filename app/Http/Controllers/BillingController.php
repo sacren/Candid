@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Billings\Bill;
 use App\Billings\Invoice;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class BillingController extends Controller
      */
     public function index()
     {
+        $bill = new Bill();
         $invoice = new Invoice();
         $invoice->amount = 5000;
         unset($invoice->amount);
@@ -21,6 +23,7 @@ class BillingController extends Controller
         $childClass = Invoice::getClassByStatic();
 
         return view('billings.index', compact(
+            'bill',
             'invoice',
             'results',
             'staticResults',

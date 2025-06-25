@@ -41,4 +41,14 @@ class Bill
     {
         return static::getClassName();
     }
+
+    /**
+     * Convert the object to its string representation.
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return 'Bill';
+    }
 }
