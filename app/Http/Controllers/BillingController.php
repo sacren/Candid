@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Billings\Bill;
 use App\Billings\Invoice;
+use App\Billings\ProcessInvoice;
 use Illuminate\Http\Request;
 
 class BillingController extends Controller
@@ -57,7 +58,9 @@ class BillingController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $invoice = (new ProcessInvoice())();
+
+        return view('billings.process', compact('invoice'));
     }
 
     /**
