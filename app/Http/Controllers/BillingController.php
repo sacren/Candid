@@ -6,6 +6,7 @@ use App\Billings\Bill;
 use App\Billings\Invoice;
 use App\Billings\ProcessInvoice;
 use Illuminate\Http\Request;
+use NumberFormatter;
 
 class BillingController extends Controller
 {
@@ -59,6 +60,10 @@ class BillingController extends Controller
     public function show(string $id)
     {
         $invoice = (new ProcessInvoice())();
+
+        // Format amount with NumberFormatter
+        $formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
+        $invoice['formatted_amount'] = $formatter->formatCurrency($invoice['amount'], 'USD');
 
         return view('billings.process', compact('invoice'));
     }
