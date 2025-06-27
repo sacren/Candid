@@ -22,4 +22,4 @@ Route::resource('debts', DebtController::class)
     ->only('index');
 
 Route::resource('billings', BillingController::class)
-    ->only('index');
+    ->only('index', 'show');
