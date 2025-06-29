@@ -20,4 +20,11 @@ abstract class NamedObject
     {
         return $this->shortName ??= (new \ReflectionClass($this))->getShortName();
     }
+
+    /**
+     * Get the view name.
+     *
+     * @return string
+     */
+    abstract public function getViewName(): string;
 }

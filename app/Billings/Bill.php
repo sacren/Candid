@@ -61,4 +61,14 @@ class Bill extends NamedObject
     {
         return static::class;
     }
+
+    /**
+     * Get the view name.
+     *
+     * @return string
+     */
+    public function getViewName(): string
+    {
+        return 'billings.process';
+    }
 }
