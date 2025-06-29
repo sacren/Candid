@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Billings\Bill;
 use App\Billings\Invoice;
+use App\Billings\NamedObject;
 use App\Billings\ProcessInvoice;
 use Illuminate\Http\Request;
 use NumberFormatter;
@@ -57,7 +58,7 @@ class BillingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(NamedObject $billing)
     {
         $invoice = (new ProcessInvoice())();
 
@@ -65,7 +66,7 @@ class BillingController extends Controller
         $formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
         $invoice['formatted_amount'] = $formatter->formatCurrency($invoice['amount'], 'USD');
 
-        return view('billings.process', compact('invoice'));
+        return view($billing->getViewName(), compact('invoice'));
     }
 
     /**
