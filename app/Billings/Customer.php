@@ -7,7 +7,7 @@ class Customer extends Invoice
     /**
      * Create a new class instance.
      */
-    public function __construct()
+    public function __construct(private string $name = '', private int $age = 0)
     {
         //
     }
@@ -20,5 +20,25 @@ class Customer extends Invoice
     public function getViewName(): string
     {
         return 'billings.customer';
+    }
+
+    /**
+     * Get the name.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the age.
+     *
+     * @return int
+     */
+    public function getAge(): int
+    {
+        return $this->age;
     }
 }

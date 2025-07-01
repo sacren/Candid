@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Billings\Bill;
+use App\Billings\Customer;
 use App\Billings\Invoice;
 use App\Billings\NamedObject;
 use App\Billings\ProcessInvoice;
@@ -61,12 +62,13 @@ class BillingController extends Controller
     public function show(NamedObject $billing)
     {
         $invoice = (new ProcessInvoice())();
+        $customer = new Customer('John Doe', 30);
 
         // Format amount with NumberFormatter
         $formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
         $invoice['formatted_amount'] = $formatter->formatCurrency($invoice['amount'], 'USD');
 
-        return view($billing->getViewName(), compact('invoice'));
+        return view($billing->getViewName(), compact('invoice', 'customer'));
     }
 
     /**
