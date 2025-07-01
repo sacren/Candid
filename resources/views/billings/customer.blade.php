@@ -12,6 +12,7 @@
                 <li><strong>Name:</strong> {{ $customer->getName() }}</li>
                 <li><strong>Age:</strong> {{ $customer->getAge() }}</li>
             </ul>
+            {{ var_dump($customer) }}
         </div>
 
         <!-- Invoice Info Card -->

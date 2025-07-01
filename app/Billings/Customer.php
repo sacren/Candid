@@ -23,6 +23,19 @@ class Customer extends Invoice
     }
 
     /**
+     * Get the instance as an array.
+     *
+     * @return array
+     */
+    public function __debugInfo(): array
+    {
+        return [
+            'name' => $this->name,
+            'age' => $this->age,
+        ];
+    }
+
+    /**
      * Get the name.
      *
      * @return string
