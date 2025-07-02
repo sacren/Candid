@@ -19,7 +19,7 @@
         <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg shadow-sm border border-green-100">
             <h2 class="text-xl font-semibold text-gray-700 mb-2">Invoice Summary</h2>
             <ul class="space-y-2 text-gray-600">
-                <li><strong>Amount:</strong> {{ $invoice['formatted_amount'] ?? $invoice['amount'] }}</li>
+                <li><strong>Amount:</strong> {{ $invoice['formatted_amount'] ?? 'N/A' }}</li>
                 <li><strong>Status:</strong> <span class="text-green-600 font-medium">Paid</span></li>
             </ul>
         </div>
