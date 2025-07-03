@@ -2,7 +2,9 @@
 
 namespace App\Billings;
 
-abstract class NamedObject
+use App\Contracts\BillingInterface;
+
+abstract class NamedObject implements BillingInterface
 {
     /**
      * The short name.

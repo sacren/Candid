@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Billings\Bill;
 use App\Billings\Customer;
 use App\Billings\Invoice;
-use App\Billings\NamedObject;
 use App\Billings\ProcessInvoice;
+use App\Contracts\BillingInterface;
 use Illuminate\Http\Request;
 use NumberFormatter;
 
@@ -59,7 +59,7 @@ class BillingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(NamedObject $billing)
+    public function show(BillingInterface $billing)
     {
         $invoice = (new ProcessInvoice())();
         $customer = new Customer('John Doe', 30);
