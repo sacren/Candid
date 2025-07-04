@@ -7,6 +7,13 @@ use NumberFormatter;
 class Invoice extends Bill
 {
     /**
+     * The name of the Invoice class.
+     *
+     * @var string
+     */
+    protected string $name = 'Invoice';
+
+    /**
      * The attributes are the storage of dynamic properties.
      *
      * @var array

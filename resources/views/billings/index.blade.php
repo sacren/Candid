@@ -43,20 +43,28 @@
         <!-- Display class name -->
         <div class="mt-4 p-3 bg-blue-50 text-blue-800 text-sm rounded-md border border-blue-100">
             <div class="flex">
-                <span class="font-medium w-24 flex-shrink-0">{{ $bill }} Class:</span>
+                <span class="font-medium w-32 flex-shrink-0">{{ $bill }} Class:</span>
                 <span class="break-all">{{ $parentClass }}</span>
             </div>
             <div class="flex">
-                <span class="font-medium w-24 flex-shrink-0">{{ $invoice }} Class:</span>
+                <span class="font-medium w-32 flex-shrink-0">{{ $invoice }} Class:</span>
                 <span class="break-all">{{ $childClass }}</span>
             </div>
             <div class="flex">
-                <span class="font-medium w-24 flex-shrink-0">{{ $bill }} Class:</span>
+                <span class="font-medium w-32 flex-shrink-0">{{ $bill }} Class:</span>
                 <span class="break-all">{{ $classEarly }}</span>
             </div>
             <div class="flex">
-                <span class="font-medium w-24 flex-shrink-0">{{ $invoice }} Class:</span>
+                <span class="font-medium w-32 flex-shrink-0">{{ $invoice }} Class:</span>
                 <span class="break-all">{{ $classLate }}</span>
+            </div>
+            <div class="flex">
+                <span class="font-medium w-32 flex-shrink-0">{{ $bill }} Instance:</span>
+                <span class="break-all">{{ $billName }}</span>
+            </div>
+            <div class="flex">
+                <span class="font-medium w-32 flex-shrink-0">{{ $invoice }} Instance:</span>
+                <span class="break-all">{{ $invoiceName }}</span>
             </div>
         </div>
     </div>

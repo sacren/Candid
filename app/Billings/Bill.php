@@ -5,11 +5,28 @@ namespace App\Billings;
 class Bill extends NamedObject
 {
     /**
+     * The name of the Bill class.
+     *
+     * @var string
+     */
+    protected string $name = 'Bill';
+
+    /**
      * Create a new class instance.
      */
     public function __construct()
     {
         //
+    }
+
+    /**
+     * Get the instance name.
+     *
+     * @return string
+     */
+    public function getInstanceName(): string
+    {
+        return $this->name;
     }
 
     /**

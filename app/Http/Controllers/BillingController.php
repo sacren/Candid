@@ -25,6 +25,8 @@ class BillingController extends Controller
         unset($invoice->amount);
         $results = $invoice->process('payment', 'email');
         $staticResults = Invoice::process('sms');
+        $billName = $bill->getInstanceName();
+        $invoiceName = $invoice->getInstanceName();
         $parentClass = Invoice::getClassBySelf();
         $childClass = Invoice::getClassByStatic();
 
@@ -35,6 +37,8 @@ class BillingController extends Controller
             'classLate',
             'results',
             'staticResults',
+            'billName',
+            'invoiceName',
             'parentClass',
             'childClass'
         ));
