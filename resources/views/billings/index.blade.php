@@ -66,6 +66,14 @@
                 <span class="font-medium w-32 flex-shrink-0">{{ $invoice }} Instance:</span>
                 <span class="break-all">{{ $invoiceName }}</span>
             </div>
+            <div class="flex">
+                <span class="font-medium w-32 flex-shrink-0">{{ $bill }} Object:</span>
+                <span class="break-all">{{ $billObject }}</span>
+            </div>
+            <div class="flex">
+                <span class="font-medium w-32 flex-shrink-0">{{ $invoice }} Object:</span>
+                <span class="break-all">{{ $invoiceObject }}</span>
+            </div>
         </div>
     </div>
 </x-layouts.app>

@@ -20,6 +20,16 @@ class Bill extends NamedObject
     }
 
     /**
+     * Get the name by static class method.
+     *
+     * @return static
+     */
+    public function getObject(): static
+    {
+        return new static();
+    }
+
+    /**
      * Get the instance name.
      *
      * @return string
